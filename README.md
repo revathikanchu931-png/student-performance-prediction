@@ -94,6 +94,12 @@ python app.py
 
 Open <http://127.0.0.1:5000>. For macOS/Linux, activate with `source .venv/bin/activate`. Run `python train_model.py` again after changing the training data or pipeline. The dataset, fitted model, JSON metrics and charts are generated locally.
 
+## GitHub Pages demo
+
+The `docs/` folder is a static browser-only companion site. A GitHub Actions workflow deploys it to Pages on pushes to `main`; the workflow requests Pages enablement. Its predictor applies the selected Linear Regression model's learned coefficients in JavaScript. GitHub Pages cannot host the Flask server, so `/api/predict` and the Python backend are available only when running locally as described above. The static predictor is for demonstration and carries the same synthetic-data limitations.
+
+Once the first Pages deployment finishes, the site is available at <https://revathikanchu931-png.github.io/student-performance-prediction/>.
+
 ## Routes
 
 - `GET /` — home page
@@ -163,4 +169,3 @@ Invoke-RestMethod -Method Post -Uri http://127.0.0.1:5000/api/predict -ContentTy
 12. **What does Flask do?** It serves the pages, validates API data and calls the saved model.
 13. **Are predictions guaranteed?** No. They are illustrative estimates based on synthetic training data.
 14. **What would improve a real deployment?** Representative consented data, stronger external validation, privacy controls, fairness analysis and domain review.
-
